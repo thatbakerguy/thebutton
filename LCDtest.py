@@ -11,17 +11,12 @@ from thebutton import TheButton
 # pass '0' for early 256 MB Model B boards or '1' for all later versions
 lcd = Adafruit_CharLCDPlate()
 
-# Clear display and show greeting, pause 1 sec
-
+# turn on the lcd and declare thebutton
 thebutton=TheButton()
+lcd.backlight(lcd.ON)
 
-count = 1
-while (count < 100):
-	lcd.backlight(lcd.ON) 
+
+while True: 
 	lcd.clear()
-	lcd.message(thebutton.get_current_time() ) #print count
-	sleep(1)
-	lcd.backlight(lcd.OFF)
-	count = count+1
-	sleep(1)
-	print thebutton.get_current_time()
+	lcd.message(thebutton.get_current_time()) 
+	sleep(.5)
